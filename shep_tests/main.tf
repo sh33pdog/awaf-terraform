@@ -12,7 +12,7 @@ provider "bigip" {
   password = var.password
 }
 
-data "http" "shepgithubpolicy" {
+data "http" "nginx_base_policy" {
   url = "https://raw.githubusercontent.com/sh33pdog/f5-asm-policy-templates/master/Declarative/nginx_base_policy.json"
   request_headers = {
   Accept = "application/json"
