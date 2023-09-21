@@ -27,3 +27,4 @@ resource "bigip_waf_policy" "s4_qa" {
     template_name        = "POLICY_TEMPLATE_FUNDAMENTAL"
     type                 = "security"
     policy_import_json   = data.http.scenario4.body
+}
