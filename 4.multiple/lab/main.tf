@@ -20,7 +20,7 @@ data "http" "scenario4" {
 }
 
 resource "bigip_waf_policy" "s4_qa" {
-    provider	    	 = bigip.qa
+    provider	    	 = bigip
     application_language = "utf-8"
     partition            = "Common"
     name                 = "scenario4"
