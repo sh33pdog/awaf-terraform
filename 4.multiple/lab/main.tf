@@ -15,7 +15,8 @@ provider "bigip" {
 data "http" "scenario4" {
   url = "https://raw.githubusercontent.com/fchmainy/awaf_tf_docs/main/0.Appendix/scenario4.json"
   request_headers = {
-  	Accept = "application/json"
+  	Accept = "application/json,text/html"
+    
   }
 }
 
