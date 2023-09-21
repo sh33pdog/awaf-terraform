@@ -17,7 +17,5 @@ resource "bigip_waf_policy" "this" {
   name                      = "scenario2"
   policy_id                 = "EdchwjSqo9cFtYP-iWUJmw"
   template_name             = "POLICY_TEMPLATE_RAPID_DEPLOYMENT"
-  policy_import_json        = data "http" "scenario_shep" {url = "https://raw.githubusercontent.com/f5devcentral/awaf-terraform/main/0.Appendix/scenario4.json"
-  request_headers = {Accept = "application/json"
-  }
+  policy_import_json        = data "http" "scenario_shep" {url = "https://raw.githubusercontent.com/f5devcentral/awaf-terraform/main/0.Appendix/scenario4.json" request_headers = {Accept = "application/json"}
 }
