@@ -1,3 +1,4 @@
+  GNU nano 5.6.1                                                                            main.tf                                                                                       
 terraform {
   required_providers {
     bigip = {
@@ -12,7 +13,7 @@ provider "bigip" {
   password = var.password
 }
 
-data "http" "nginx_base_policy" {
+data "http" "shep_rdp" {
   url = "https://raw.githubusercontent.com/sh33pdog/f5-asm-policy-templates/master/Declarative/RDP.json"
   request_headers = {
   Accept = "application/json"
@@ -26,5 +27,5 @@ resource "bigip_waf_policy" "s4_qa" {
     name                 = "shep_rdp_policy"
     template_name        = "POLICY_TEMPLATE_FUNDAMENTAL"
     type                 = "security"
-    policy_import_json   = data.http.nginx_base_policy.body
+    policy_import_json   = data.http.shep_rdp.body
 }
