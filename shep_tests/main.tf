@@ -13,18 +13,18 @@ provider "bigip" {
 }
 
 data "http" "nginx_base_policy" {
-  url = "https://raw.githubusercontent.com/sh33pdog/f5-asm-policy-templates/master/Declarative/nginx_base_policy.json"
+  url = "https://raw.githubusercontent.com/sh33pdog/f5-asm-policy-templates/master/Declarative/RDP.json"
   request_headers = {
   Accept = "application/json"
   }
 }
 
 resource "bigip_waf_policy" "s4_qa" {
-    provider             = "bigip"
+    provider             = bigip
     application_language = "utf-8"
     partition            = "Common"
-    name                 = "shepgithubpolicy"
+    name                 = "shep_rdp_policy"
     template_name        = "POLICY_TEMPLATE_FUNDAMENTAL"
     type                 = "security"
-    policy_import_json   = data.http.shepgithubpolicy.body
+    policy_import_json   = data.http.nginx_base_policy.body
 }
