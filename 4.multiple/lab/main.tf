@@ -28,13 +28,3 @@ resource "bigip_waf_policy" "s4_qa" {
     type                 = "security"
     policy_import_json   = data.http.scenario4.body
 }
-
-resource "bigip_waf_policy" "s4_prod" {
-    provider	         = bigip.prod
-    application_language = "utf-8"
-    partition            = "Common"
-    name                 = "scenario4"
-    template_name        = "POLICY_TEMPLATE_FUNDAMENTAL"
-    type                 = "security"
-    policy_import_json   = data.http.scenario4.body
-}
