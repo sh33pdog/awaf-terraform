@@ -12,8 +12,8 @@ provider "bigip" {
   password = var.password
 }
 
-data "http" "scenario4" {
-  url = "https://raw.githubusercontent.com/fchmainy/awaf_tf_docs/main/0.Appendix/scenario4.json"
+data "http" "shepgithubpolicy" {
+  url = "https://raw.githubusercontent.com/sh33pdog/f5-asm-policy-templates/master/Declarative/nginx_base_policy.json"
   request_headers = {
   Accept = "application/json"
   }
@@ -23,7 +23,7 @@ resource "bigip_waf_policy" "s4_qa" {
     provider             = "bigip"
     application_language = "utf-8"
     partition            = "Common"
-    name                 = "scenario4"
+    name                 = "shepgithubpolicy"
     template_name        = "POLICY_TEMPLATE_FUNDAMENTAL"
     type                 = "security"
-    policy_import_json   = data.http.scenario4.body
+    policy_import_json   = data.http.shepgithubpolicy.body
